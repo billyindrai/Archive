@@ -1,23 +1,26 @@
-<!doctype html>
-<html>  
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
+@extends ('layouts.master')
 
-        <style>
-            .box {
-                background-color: LightGoldenRodYellow;
-                width: 300px;
-                padding: 25px;
-                border: 25px solid Lime;
-                margin: 25px;
-            }
-        </style>
-                    
-     
-    </head>
-    <body>
+@section('title', 'promosi')
+
+@section('header')
+
+@section('slidebar')
+
+@section('content')
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Promosi Objek Wisata
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Beranda</a></li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
         <div class="container">
             <div class="card mt-5">
                 <div class="card-header text-center">
@@ -50,5 +53,10 @@
                 </div>
             </div>
         </div>
-    </body>
-</html>
+
+        </section>
+    <!-- /.content -->
+  </div>
+@endsection
+@section('footer')
+@section('aside')
