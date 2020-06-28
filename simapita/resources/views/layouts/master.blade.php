@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>SIMAWITA</title>
+  <title>@yield('title')</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -31,7 +31,7 @@
 <body class="hold-transition skin-blue sidebar-mini">
 <!-- Site wrapper -->
 <div class="wrapper">
-
+  @yield('header')
   <header class="main-header">
     <!-- Logo -->
     <a href="../../index2.html" class="logo">
@@ -148,7 +148,6 @@
 
                 <p>
                  Saitama - Admin 
-                  <small></small>
                 </p>
               </li>
               
@@ -171,8 +170,7 @@
       </div>
     </nav>
   </header>
-
-  <!-- =============================================== -->
+  <!-- =============================================== -->   
 
   <!-- Left side column. contains the sidebar -->
   <aside class="main-sidebar">
@@ -202,67 +200,31 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">TAMPILAN UTAMA</li>
-        <li class="treeview">
-          <a href="#">
+        <li>
+          <a href="/dashboard">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
           </a>
-
         </li>
-
+        <li>
+          <a href="/wisata">
+            <i class="fa fa-home"></i> <span>Daftar Wisata</span>
+          </a>
+        </li>
+        <li>
+          <a href="/promosi">
+            <i class="fa fa-home"></i> <span>Promosi</span>
+          </a>
+        </li>
       </ul>
     </section>
     <!-- /.sidebar -->
   </aside>
 
   <!-- =============================================== -->
-
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        Daftar Tempat Wisata
-
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Beranda</a></li>
-      </ol>
-    </section>
-
-    <!-- Main content -->
-    <section class="content">
-
-      <!-- Default box -->
-      <div class="box">
-        <div class="box-header with-border">
-          <h3 class="box-title">Title</h3>
-
-          <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
-                    title="Collapse">
-              <i class="fa fa-minus"></i></button>
-            
-          </div>
-        </div>
-        <div class="box-body">
-          Start creating your amazing application!
-        </div>
-        <!-- /.box-body -->
-        <div class="box-footer">
-          Footer
-        </div>
-        <!-- /.box-footer-->
-      </div>
-      <!-- /.box -->
-
-    </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
-
+  @yield('content')     
+    
+ 
+  @yield ('footer')
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
       <b>Version</b> 1.0
@@ -275,8 +237,6 @@
     <!-- Create the tabs -->
     <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
       <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-
-      
     </ul>
     <!-- Tab panes -->
     <div class="tab-content">
@@ -330,7 +290,6 @@
   <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
-
 <!-- jQuery 3 -->
 <script src="/adminlte/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->

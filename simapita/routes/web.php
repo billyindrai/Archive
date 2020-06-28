@@ -17,4 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Route::get('/wisata', function () {
+//     return view('daftar_wisata');
+// });
+
 Route::get('/dashboard', 'AdminController@dashboard');
+
+Route::get('/wisata', 'AdminController@wisata');
