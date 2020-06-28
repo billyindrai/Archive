@@ -138,13 +138,13 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-<<<<<<< HEAD
+
               <img src="/adminlte/img/dimas.jpg" class="user-image" alt="User Image">
               <span class="hidden-xs">Dimas Wahyu Pratama</span>
-=======
+
               <img src="/adminlte/img/saitama.jpg" class="user-image" alt="User Image">
               <span class="hidden-xs">Saitama</span>
->>>>>>> 33eebf5d52a37ec9fd0c1bc71c2285c5df120b71
+
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -152,12 +152,11 @@
                 <img src="/adminlte/img/saitama.jpg" class="img-circle" alt="User Image">
 
                 <p>
-<<<<<<< HEAD
                   Dimas wahyu Pratama - Web Developer
                   <small>Member since Nov. 2012</small>
-=======
+
                  Saitama - Admin 
->>>>>>> 33eebf5d52a37ec9fd0c1bc71c2285c5df120b71
+
                 </p>
               </li>
               
@@ -189,17 +188,17 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-<<<<<<< HEAD
+
           <img src="/adminlte/img/dimas.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>Dimas Wahyu Pratama</p>
-=======
+
           <img src="/adminlte/img/saitama.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>Saitama</p>
->>>>>>> 33eebf5d52a37ec9fd0c1bc71c2285c5df120b71
+
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -216,7 +215,7 @@
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
-<<<<<<< HEAD
+
         <li class="header">MAIN NAVIGATION</li>
         <li class="treeview">
           <a href="#">
@@ -245,9 +244,9 @@
             <li><a href="../layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
           </ul>
         </li>
-=======
+
         <li class="header">TAMPILAN UTAMA</li>
->>>>>>> 33eebf5d52a37ec9fd0c1bc71c2285c5df120b71
+
         <li>
           <a href="/dashboard">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
@@ -268,7 +267,6 @@
     <!-- /.sidebar -->
   </aside>
 
-  <!-- =============================================== -->
   @yield('content')     
     
  
