@@ -228,10 +228,10 @@
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
       <b>Version</b> 1.0
-    <strong>Copyright &copy; 2020 ARCHIVE</strong> All rights
-    reserved.
+    <strong>Copyright &copy; 2020 ARCHIVE</strong> All rightsreserved.
   </footer>
 
+@yield ('aside')
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Create the tabs -->

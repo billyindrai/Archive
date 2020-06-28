@@ -5,12 +5,13 @@
 @section('header')
 
 @section('content')
+
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>Jogja Bay</h1>
         <div class="meta">
-            <div>Rating<span class="fa fa-star checked"></span></div>
+            <div>4<span class="fa fa-star"></span></div>
         </div>
     </section>
 
@@ -111,3 +112,5 @@
 @endsection
 
 @section('footer')
+
+@section('aside')
