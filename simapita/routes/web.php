@@ -17,8 +17,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+<<<<<<< HEAD
 Route::get('/dashboard', 'AdminController@dashboard');
 
 // promosi
 Route::get('/promosi', 'PromosiController@index');
 Route::get('/promosi/export_excel', 'PromosiController@export_excel');
+=======
+// Route::get('/wisata', function () {
+//     return view('daftar_wisata');
+// });
+
+Route::get('/dashboard', 'AdminController@dashboard');
+
+Route::get('/wisata', 'AdminController@wisata');
+>>>>>>> 33eebf5d52a37ec9fd0c1bc71c2285c5df120b71
