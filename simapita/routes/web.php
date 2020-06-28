@@ -18,3 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', 'AdminController@dashboard');
+
+// promosi
+Route::get('/promosi', 'PromosiController@index');
+Route::get('/promosi/export_excel', 'PromosiController@export_excel');
