@@ -4,15 +4,22 @@
 
 @section('header')
 
+@section('slidebar')
+
 @section('content')
 
-<div class="content-wrapper">
+  <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>Jogja Bay</h1>
-        <div class="meta">
+      <h1>
+        Jogja Bay
+      </h1>
+      <div class="meta">
             <div>4<span class="fa fa-star"></span></div>
-        </div>
+      </div>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Beranda</a></li>
+      </ol>
     </section>
 
     <!-- Main content -->
@@ -112,5 +119,4 @@
 @endsection
 
 @section('footer')
-
 @section('aside')

@@ -141,10 +141,6 @@
 
               <img src="/adminlte/img/dimas.jpg" class="user-image" alt="User Image">
               <span class="hidden-xs">Dimas Wahyu Pratama</span>
-
-              <img src="/adminlte/img/saitama.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">Saitama</span>
-
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -181,6 +177,7 @@
   </header>
   <!-- =============================================== -->   
 
+  @yield ('slidebar')
   <!-- Left side column. contains the sidebar -->
   <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
@@ -193,12 +190,6 @@
         </div>
         <div class="pull-left info">
           <p>Dimas Wahyu Pratama</p>
-
-          <img src="/adminlte/img/saitama.jpg" class="img-circle" alt="User Image">
-        </div>
-        <div class="pull-left info">
-          <p>Saitama</p>
-
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -215,40 +206,10 @@
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
-
-        <li class="header">MAIN NAVIGATION</li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-            <li><a href="/promosi"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
-          </ul>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-files-o"></i>
-            <span>Layout Options</span>
-            <span class="pull-right-container">
-              <span class="label label-primary pull-right">4</span>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="../layout/top-nav.html"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
-            <li><a href="../layout/boxed.html"><i class="fa fa-circle-o"></i> Boxed</a></li>
-            <li><a href="../layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
-            <li><a href="../layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
-          </ul>
-        </li>
-
         <li class="header">TAMPILAN UTAMA</li>
 
         <li>
-          <a href="/dashboard">
+          <a href="/daftar_wisata">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
@@ -266,8 +227,11 @@
     </section>
     <!-- /.sidebar -->
   </aside>
-
-  @yield('content')     
+  
+  <section>
+  @yield('content') 
+  </section>
+      
     
  
   @yield ('footer')
@@ -277,7 +241,7 @@
     <strong>Copyright &copy; 2020 ARCHIVE</strong> All rightsreserved.
   </footer>
 
-@yield ('aside')
+  @yield ('aside')
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Create the tabs -->
@@ -317,10 +281,8 @@
               </div>
             </a>
           </li>
-
         </ul>
         <!-- /.control-sidebar-menu -->
-
       </div>
       <!-- /.tab-pane -->
       <!-- Stats tab content -->

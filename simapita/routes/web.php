@@ -32,3 +32,9 @@ Route::get('/dashboard', 'AdminController@dashboard');
 
 Route::get('/wisata', 'AdminController@wisata');
 
+Route::get('/daftar_wisata', 'WisataController@tampilan_data');
+Route::get('/daftar_wisata/tambah', 'WisataController@tambah');
+Route::post('/daftar_wisata/store','WisataController@store');
+Route::get('/daftar_wisata/edit/{id}','WisataController@edit');
+Route::post('/daftar_wisata/update','WisataController@update');
+Route::get('/daftar_wisata/hapus/{id}','WisataController@hapus');
