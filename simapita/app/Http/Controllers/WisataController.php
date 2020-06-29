@@ -81,11 +81,13 @@ class WisataController extends Controller
         
         $pendapatan = pendapatan::all();
         $bulan = [];
+        $hasil_pendapatan = [];
         foreach($pendapatan as $p){
-            $bulan[] = MONTHNAME($p->bulan);
+            $bulan[] = $p->bulan;
+            $hasil_pendapatan[] = $p->hasil_pendapatan;
         }
 
-        dd($bulan);
-        return view('wisata.wisata',['wisata' => $wisata]);        
+        // dd($hasil_pendapatan);
+        return view('wisata.wisata',['wisata' => $wisata, 'bulan' => $bulan, 'hasil_pendapatan' => $hasil_pendapatan]);        
 	}
 }

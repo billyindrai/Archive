@@ -211,12 +211,7 @@ yAxis: {
 },
 
 xAxis: {
-        categories: [
-            'Januari',
-            'Februari',
-            'Maret',
-            'April'
-        ],
+        categories: {!!json_encode($bulan)!!},
         crosshair: true
     },
 
@@ -236,8 +231,8 @@ legend: {
 // },
 
 series: [{
-    name: 'Installation',
-    data: [43934, 52503, 57177, 69658]
+    name: 'Rupiah',
+    data: {!!json_encode($hasil_pendapatan)!!}
 }],
 
 responsive: {
