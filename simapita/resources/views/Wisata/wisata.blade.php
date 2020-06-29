@@ -81,7 +81,7 @@
               </div>
             </div>
             <div class="box-body">
-              <div id="chartLineNilai"></div>
+              <div id="chartLine"></div>
             </div>
             <!-- /.box-body -->
           </div>
@@ -91,17 +91,30 @@
           <div class="box box-success">
             <div class="box-header with-border">
               <h3 class="box-title">Bar Chart</h3>
-
               <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                 <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
               </div>
             </div>
             <div class="box-body">
-              <div class="chart">
-                <div id="chartLineNilai"></div>
+              <div id="chartBar"></div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+
+        <div class="col-lg-6 col-xs-6">
+          <div class="box box-success">
+            <div class="box-header with-border">
+              <h3 class="box-title">Pie Chart</h3>
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
               </div>
+            </div>
+            <div class="box-body">
+              <div id="chartPie"></div>
             </div>
             <!-- /.box-body -->
           </div>
@@ -116,39 +129,34 @@
 @endsection
 
 @section('footer')
+@section('aside')
+@stop
+@section('script')
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script>
-  Highcharts.chart('chartLineNilai', {
+  Highcharts.chart('chartBar', {
     chart: {
         type: 'column'
     },
     title: {
-        text: 'Monthly Average Rainfall'
+        text: 'Grafik Pengunjung'
     },
-    subtitle: {
-        text: 'Source: WorldClimate.com'
-    },
+    // subtitle: {
+    //     text: 'Source: WorldClimate.com'
+    // },
     xAxis: {
         categories: [
-            'Jan',
-            'Feb',
-            'Mar',
-            'Apr',
-            'May',
-            'Jun',
-            'Jul',
-            'Aug',
-            'Sep',
-            'Oct',
-            'Nov',
-            'Dec'
+            'Januari',
+            'Februari',
+            'Maret',
+            'April'
         ],
         crosshair: true
     },
     yAxis: {
         min: 0,
         title: {
-            text: 'Rainfall (mm)'
+            text: 'Jumlah Pengunjung'
         }
     },
     tooltip: {
@@ -167,21 +175,152 @@
     },
     series: [{
         name: 'Tokyo',
-        data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+        data: [49.9, 71.5, 106.4, 129.2]
 
     }, {
         name: 'New York',
-        data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
+        data: [83.6, 78.8, 98.5, 93.4]
 
     }, {
         name: 'London',
-        data: [48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0, 59.6, 52.4, 65.2, 59.3, 51.2]
+        data: [48.9, 38.8, 39.3, 41.4]
 
     }, {
         name: 'Berlin',
-        data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1]
+        data: [42.4, 33.2, 34.5, 39.7]
 
     }]
 });
 </script>
-@section('aside')
+
+<script>
+  Highcharts.chart('chartLine', {
+
+title: {
+    text: 'Grafik Pendapatan'
+},
+
+// subtitle: {
+//     text: 'Source: thesolarfoundation.com'
+// },
+
+yAxis: {
+    title: {
+        text: 'Pendapatan'
+    }
+},
+
+xAxis: {
+        categories: [
+            'Januari',
+            'Februari',
+            'Maret',
+            'April'
+        ],
+        crosshair: true
+    },
+
+legend: {
+    layout: 'vertical',
+    align: 'right',
+    verticalAlign: 'middle'
+},
+
+// plotOptions: {
+//     series: {
+//         label: {
+//             connectorAllowed: false
+//         },
+//         pointStart: 2010
+//     }
+// },
+
+series: [{
+    name: 'Installation',
+    data: [43934, 52503, 57177, 69658]
+}],
+
+responsive: {
+    rules: [{
+        condition: {
+            maxWidth: 500
+        },
+        chartOptions: {
+            legend: {
+                layout: 'horizontal',
+                align: 'center',
+                verticalAlign: 'bottom'
+            }
+        }
+    }]
+}
+
+});
+</script>
+
+<script>
+Highcharts.chart('chartPie', {
+    chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
+        type: 'pie'
+    },
+    title: {
+        text: 'Tiket Pengunjung'
+    },
+    tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+    },
+    accessibility: {
+        point: {
+            valueSuffix: '%'
+        }
+    },
+    plotOptions: {
+        pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+                enabled: true,
+                format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+            }
+        }
+    },
+    series: [{
+        name: 'Brands',
+        colorByPoint: true,
+        data: [{
+            name: 'Chrome',
+            y: 61.41,
+            sliced: true,
+            selected: true
+        }, {
+            name: 'Internet Explorer',
+            y: 11.84
+        }, {
+            name: 'Firefox',
+            y: 10.85
+        }, {
+            name: 'Edge',
+            y: 4.67
+        }, {
+            name: 'Safari',
+            y: 4.18
+        }, {
+            name: 'Sogou Explorer',
+            y: 1.64
+        }, {
+            name: 'Opera',
+            y: 1.6
+        }, {
+            name: 'QQ',
+            y: 1.2
+        }, {
+            name: 'Other',
+            y: 2.61
+        }]
+    }]
+});
+</script>
+@stop
