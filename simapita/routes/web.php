@@ -38,3 +38,5 @@ Route::post('/daftar_wisata/store','WisataController@store');
 Route::get('/daftar_wisata/edit/{id}','WisataController@edit');
 Route::post('/daftar_wisata/update','WisataController@update');
 Route::get('/daftar_wisata/hapus/{id}','WisataController@hapus');
+
+Route::get('daftar_wisata/{nama}','WisataController@wisata');

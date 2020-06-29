@@ -39,10 +39,9 @@
             @foreach($wisata as $w)
             <tr>
               <td style="background-image: url('<?=$w->gambar_wisata?>');"></td>
-              <td>{{ $w->nama_wisata }}</td>
+              <td><a href="/daftar_wisata/{{$w->nama_wisata}}">{{$w->nama_wisata}}</a></td>
               <td>{{ $w->harga_wisata }}</td>
               <td>{{ $w->rating_wisata }} <span class="fa fa-star"></span> </td>
-
               <td>
                 <a href="/daftar_wisata/edit/{{ $w->id_wisata }}" class="btn btn-warning">Edit</a>
                 <a href="/daftar_wisata/hapus/{{ $w->id_wisata }}" class="btn btn-danger">Hapus</a>

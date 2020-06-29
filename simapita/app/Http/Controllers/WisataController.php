@@ -72,5 +72,11 @@ class WisataController extends Controller
 		$cari = $request->cari;
 		$wisata = DB::table('wisata')->where('nama_wisata','like',"%".$cari."%")->paginate();
     	return view('wisata.daftar_wisata',['wisata' => $wisata]);
+    }
+    
+    public function wisata($nama)
+    {
+    	$wisata = DB::table('wisata')->where('nama_wisata',$nama)->get();
+    	return view('wisata.wisata',['wisata' => $wisata]);
 	}
 }

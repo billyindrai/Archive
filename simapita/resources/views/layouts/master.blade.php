@@ -207,14 +207,8 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">TAMPILAN UTAMA</li>
-
         <li>
           <a href="/daftar_wisata">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-          </a>
-        </li>
-        <li>
-          <a href="/wisata">
             <i class="fa fa-home"></i> <span>Daftar Wisata</span>
           </a>
         </li>
