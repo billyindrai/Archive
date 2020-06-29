@@ -1,6 +1,6 @@
 @extends ('layouts.master')
 
-@section('title', 'Promosi')
+@section('title', 'promosi')
 
 @section('header')
 
@@ -11,9 +11,12 @@
     <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>
+      <br> 
+      <center>
+      <h3> 
         Promosi Objek Wisata
-      </h1>
+      </h3>
+      </center>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Beranda</a></li>
       </ol>
@@ -27,11 +30,8 @@
                    
                 </div>
                 <div class="card-body">
-                    <a href="/promosi/export_excel" class="btn btn-primary">Download File</a>
-                    <br/>
-                    <br/>
-                    <table class="table table-bordered table-hover table-striped">
-                        <thead>
+                    <table id="tabels">
+                    <thead >
                             <tr>
                                 <th>Nama</th>
                                 <th>Rating</th>
@@ -45,15 +45,24 @@
                                 <td>{{ $p->nama }}</td>
                                 <td>{{ $p->rating }}</td>
                                 <td>{{ $p->jumlah_pengunjung }}</td>
-                                <td>{{ $p->status }}</td>
+                                <td><form action="/action_page.php">
+    
+                                    <select class="form-control" id="sel5" name="sellist5">
+                                        <option>Belum Diproses</option>
+                                        <option>Sedang Diproses</option>
+                                        <option>Promosi Selesai</option>
+                                    </select>
+                                        <br>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
                 </div>
-            </div>
+                </div>
         </div>
-
+        <br>
+        <a href="/promosi/export_excel"  class="btn btn-primary pull-right" style="width:15%"><i class="fa fa-download"></i> Download File</a>
         </section>
     <!-- /.content -->
   </div>

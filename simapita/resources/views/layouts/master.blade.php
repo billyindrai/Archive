@@ -1,6 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+  #tabels {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  #tabels td, #tabels th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+
+  #tabels tr:nth-child(even){background-color: #f2f2f2;}
+
+  #tabels tr:hover {background-color: #ddd;}
+
+  #tabels th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #3c8dbc;
+    color: white;
+  }
+</style>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>@yield('title')</title>

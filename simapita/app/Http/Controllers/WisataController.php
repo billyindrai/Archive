@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Pendapatan;
 
 class WisataController extends Controller
 {
@@ -76,7 +77,15 @@ class WisataController extends Controller
     
     public function wisata($nama)
     {
-    	$wisata = DB::table('wisata')->where('nama_wisata',$nama)->get();
-    	return view('wisata.wisata',['wisata' => $wisata]);
+        $wisata = DB::table('wisata')->where('nama_wisata',$nama)->get();
+        
+        $pendapatan = pendapatan::all();
+        $bulan = [];
+        foreach($pendapatan as $p){
+            $bulan[] = MONTHNAME($p->bulan);
+        }
+
+        dd($bulan);
+        return view('wisata.wisata',['wisata' => $wisata]);        
 	}
 }
