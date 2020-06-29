@@ -38,7 +38,7 @@
             <tbody>
             @foreach($wisata as $w)
             <tr>
-              <td style="background-image: url('<?=$w->gambar_wisata?>');"></td>
+              <td><img src="<?=$w->gambar_wisata?>" width=300px height=200px obejct-fit=cover></td>
               <td><a href="/daftar_wisata/{{$w->nama_wisata}}">{{$w->nama_wisata}}</a></td>
               <td>{{ $w->harga_wisata }}</td>
               <td>{{ $w->rating_wisata }} <span class="fa fa-star"></span> </td>
