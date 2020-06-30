@@ -6,6 +6,8 @@
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
+    text-align: center;
+    
   }
 
   #tabels td, #tabels th {
@@ -24,6 +26,35 @@
     background-color: #3c8dbc;
     color: white;
   }
+  .button {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-weight: bold;
+  background-color: #4CAF50; 
+  border: none;
+  color: white;
+  padding: 5px ;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin:1px 1px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  width: 100%;
+}
+
+
+.button2 {
+  background-color: white; 
+  color: #3c8dbc; 
+  border: 2px solid #3c8dbc;
+}
+
+.button2:hover {
+  background-color: #3c8dbc;
+  color: white;
+}
+
 </style>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -238,7 +269,7 @@
         </li>
         <li>
           <a href="/promosi">
-            <i class="fa fa-home"></i> <span>Promosi</span>
+            <i class="fa fa-line-chart"></i> <span>Promosi</span>
           </a>
         </li>
       </ul>

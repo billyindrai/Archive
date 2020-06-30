@@ -11,9 +11,12 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>
-        Daftar Tempat Wisata
-      </h1>
+    <br> 
+    <center>
+      <h3> 
+       Daftar Tempat Wisata
+      </h3>
+    </center>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Beranda</a></li>
       </ol>
@@ -22,17 +25,20 @@
     <div class="container">
       <div class="card mt-5">
         <div class="card-body">
-          <a href="/daftar_wisata/tambah" class="btn btn-primary">Input Objek Wisata Baru</a>
+          <a href="/daftar_wisata/tambah" class="btn btn-primary pull-right">Input Objek Wisata Baru</a>
           <br/>
           <br/>
-          <table class="table table-bordered table-hover table-striped">
+          <table  id="tabels">
+          
             <thead>
-            <tr>
+            <tr> 
+           
               <th >Gambar Wisata</th>
               <th>Nama Wisata</th>
               <th>Harga Wisata</th>
               <th>Rating Wisata</th>      
               <th>Pilihan</th>
+            
             </tr>
             </thead>
             <tbody>
@@ -43,8 +49,13 @@
               <td>{{ $w->harga_wisata }}</td>
               <td>{{ $w->rating_wisata }} <span class="fa fa-star"></span> </td>
               <td>
-                <a href="/daftar_wisata/edit/{{ $w->id_wisata }}" class="btn btn-warning">Edit</a>
-                <a href="/daftar_wisata/hapus/{{ $w->id_wisata }}" class="btn btn-danger">Hapus</a>
+                  <a class="btn btn-warning btn-sm" href="/daftar_wisata/edit/{{ $w->id_wisata }}">
+                    <i class="fa fa-pencil-square-o"></i> Edit </a>
+
+                  <a class="btn btn-danger btn-sm" href="/daftar_wisata/hapus/{{ $w->id_wisata }}">
+                  <i class="fa fa-trash-o fa-lg"></i> Delete</a>
+             
+                
               </td>
 		        </tr>
             @endforeach

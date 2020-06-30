@@ -12,9 +12,12 @@
 	<div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>
+	<br> 
+      <h3>
+	  <center>
         Tambah Objek Wisata
-      </h1>
+      </center>
+	  </h3>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Beranda</a></li>
       </ol>
@@ -24,31 +27,33 @@
     <section class="content">	
 	<form action="/daftar_wisata/store" method="post" enctype="multipart/form-data">
 		{{ csrf_field() }}
-		<table style="margin:20px auto;">
-			<tr>
-				<td>Nama Wisata</td>
-				<td><input type="varchar", name="nama_wisata" size="30" maxlength="30"></td>
-            </tr>
-            <tr>
-				<td>Harga Wisata</td>
-				<td><input type="integer" name="harga_wisata"size="6" maxlength="6"></td>
-			</tr>
-			<tr>
-				<td>Rating Wisata</td>
-				<td><input type="doubel" name="rating_wisata" size="3" maxlength="3"></td>
-			</tr>
-			<tr>
-				<td>Jumlah Pengunjung</td>
-				<td><input type="integer" name="jumlah_pengunjung" size="5" maxlength="5"></td>
-			</tr>
-				<td>Gambar Wisata</td>
-                <td><input type="file" name="gambar_wisata" ></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td><input type="submit" name="submit" value="Tambah Data"></td>
-			</tr>
-		</table>
+		<div class="card-body">
+                    <table id="tabels">
+			            <thead>
+            				<tr>
+              					
+              					<th>Nama Wisata</th>
+             					<th>Harga Tiket</th>
+              					<th>Rating Wisata</th>      
+              					<th>Jumlah Pengunjung</th>
+								<th>Upload</th>
+            				</tr>
+            			</thead>
+	
+						<tbody>
+            				<tr>
+							
+								<td><input type="varchar", name="nama_wisata" placeholder="Masukan Nama" maxlength="30"></td>
+								<td><input type="integer" name="harga_wisata" placeholder="Masukan Harga Tiket " maxlength="6"></td>
+								<td><input type="doubel" name="rating_wisata" placeholder="Masukan Rating" maxlength="3"></td>
+								<td><input type="integer" name="jumlah_pengunjung "placeholder="Masukan Jumlah pengunjung" maxlength="5"></td>
+								<td><input type="file" name="gambar_wisata" ></td>
+							</tr>
+						</tbody>
+					</table>
+					<button class=" button button2"   type="submit" name="submit" > Tambah 
+					</button>
+		</div>
 	</form>
 
 	</section>
