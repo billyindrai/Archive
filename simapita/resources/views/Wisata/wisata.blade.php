@@ -59,7 +59,7 @@
           <!-- small box -->
           <div class="small-box bg-yellow">
             <div class="inner">
-              <h3>44</h3>
+              <h3>4500000</h3>
               <p>Pendapatan</p>
             </div>
             <div class="icon">

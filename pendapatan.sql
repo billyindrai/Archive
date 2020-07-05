@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 29, 2020 at 05:07 PM
+-- Generation Time: Jun 30, 2020 at 04:52 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.10
 
@@ -32,18 +32,19 @@ CREATE TABLE `pendapatan` (
   `id_pendapatan` int(5) NOT NULL,
   `id_wisata` int(5) DEFAULT NULL,
   `bulan` date DEFAULT NULL,
-  `hasil_pendapatan` int(10) DEFAULT NULL
+  `hasil_pendapatan` int(10) DEFAULT NULL,
+  `hasil_pengunjung` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `pendapatan`
 --
 
-INSERT INTO `pendapatan` (`id_pendapatan`, `id_wisata`, `bulan`, `hasil_pendapatan`) VALUES
-(1, 2, '2020-01-01', 5000000),
-(2, 2, '2020-02-01', 4500000),
-(3, 2, '2020-03-01', 2200000),
-(4, 2, '2020-04-01', 6100000);
+INSERT INTO `pendapatan` (`id_pendapatan`, `id_wisata`, `bulan`, `hasil_pendapatan`, `hasil_pengunjung`) VALUES
+(1, 2, '2020-01-01', 5000000, 100000),
+(2, 2, '2020-02-01', 4500000, 250000),
+(3, 2, '2020-03-01', 220000, 120000),
+(4, 2, '2020-04-01', 6100000, 321000);
 
 --
 -- Indexes for dumped tables
