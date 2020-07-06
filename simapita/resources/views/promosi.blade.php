@@ -18,7 +18,9 @@
       </h3>
       </center>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Beranda</a></li>
+      <h4>
+        <li><a href="#"><i class="fa fa-line-chart"></i> </a></li>
+      </h4>
       </ol>
     </section>
 

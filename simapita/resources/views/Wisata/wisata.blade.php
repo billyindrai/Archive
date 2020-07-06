@@ -19,7 +19,9 @@
             <div>{{$w->rating_wisata}}<span class="fa fa-star"></span></div>
       </div>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i>Beranda</a></li>
+      <h4>
+        <li><a href="/daftar_wisata"><i class="fa fa-home"></i> </a> <  <a href="#"> {{$w->nama_wisata}} </a></li>
+        </h4>
       </ol>
     </section>
 
