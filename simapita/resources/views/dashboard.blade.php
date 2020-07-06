@@ -22,7 +22,7 @@
               <p>Wisata</p>
             </div>
             <div class="icon">
-              <i class="fa fa-ticket"></i>
+              <i class="fa fa-home"></i>
             </div>
             <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>

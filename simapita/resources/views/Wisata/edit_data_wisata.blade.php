@@ -11,43 +11,54 @@
 	<div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>
-        Edit Data Objek Wisata
-      </h1>
+	<br> 
+      <h3>
+	  <center>
+        Edit Data Tempat Wisata
+      </center>
+	  </h3>
+	  @foreach($wisata as $w)
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Beranda</a></li>
+      <h4>
+        <li><a href="/daftar_wisata"><i class="fa fa-home"></i> </a> <  <a href="#"> {{$w->nama_wisata}} </a></li>
+        </h4>
       </ol>
     </section>
-	@foreach($wisata as $w)
+	
 	<section class="content">
-	<form action="/daftar_wisata/update" method="post" enctype="multipart/form-data" >
+	<form action="/daftar_wisata/update" method="post" enctype="multipart/form-data">
 		{{ csrf_field() }}
 		<input type="hidden" name="id" value="{{ $w->id_wisata}}">
-		<table style="margin:20px auto;">		
-			<tr>
-				<td>Nama Wisata</td>
+		<div class="card-body"> 
+                    <table id="tabels">
+			            <thead> 
+            				<tr>
+              					
+              					<th>Nama Wisata</th>
+             					<th>Harga Tiket</th>
+              					<th>Rating Wisata</th>      
+              					<th>Jumlah Pengunjung</th>
+								<th>Upload</th>
+            				</tr>
+            			</thead>
+	
+						<tbody>
+            				<tr>
+							
+								
 				<td><input type="varchar", name="nama_wisata" required="required" value="{{ $w->nama_wisata }}" size="30" maxlength="30"></td>
-            </tr>
-            <tr>
-				<td>Harga Wisata</td>
 				<td><input type="integer" name="harga_wisata" required="required" value="{{ $w->harga_wisata }}" size="6" maxlength="6"></td>
-			</tr>
-			<tr>
-				<td>Rating Wisata</td>
+				
 				<td><input type="doubel" name="rating_wisata" required="required" value="{{ $w->rating_wisata }}" size="3" maxlength="3"></td>
-			</tr>
-			<tr>
-				<td>Jumlah Pengunjung</td>
-				<td><input type="integer" name="jumlah_pengunjung" required="required" value="{{ $w->jumlah_pengunjung }}" size="5" maxlength="5"></td>
-			</tr>
-				<td>Gambar Wisata</td>
-                <td><input type="file" name="gambar_wisata" required="required" value="{{ $w->gambar_wisata }}"></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td><input type="submit" name="submit" value="Edit Data"></td>
-			</tr>
+								
+				<td><input type="doubel" name="rating_wisata" required="required" value="{{ $w->rating_wisata }}" size="3" maxlength="3"></td>
+								<td><input type="file" name="gambar_wisata" ></td>
+							</tr>
+						</tbody>
+					</table>
+					<button class= "button button2" type="submit" name="submit" > Edit </button>
 		</table>
+		
 	</form>
 	@endforeach
 	</section>

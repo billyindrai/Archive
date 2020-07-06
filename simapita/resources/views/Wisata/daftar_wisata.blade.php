@@ -18,7 +18,8 @@
       </h3>
     </center>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Beranda</a></li>
+      <h4>
+        <li><a href="/daftar_wisata"><i class="fa fa-home"></i> </h4>
       </ol>
     </section>
 

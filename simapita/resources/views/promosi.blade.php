@@ -18,7 +18,9 @@
       </h3>
       </center>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Beranda</a></li>
+      <h4>
+        <li><a href="#"><i class="fa fa-line-chart"></i> </a></li>
+      </h4>
       </ol>
     </section>
 
@@ -35,7 +37,6 @@
                             <tr>
                                 <th>Nama</th>
                                 <th>Rating</th>
-                                <th>Jumlah Pengunjung</th>
                                 <th>Status</th>
                             </tr>
                         </thead>
@@ -44,7 +45,6 @@
                             <tr>
                                 <td>{{ $w->nama_wisata }}</td>
                                 <td>{{ $w->rating_wisata }}</td>
-                                <td>{{ $w->jumlah_pengunjung }}</td>
                                 <td><form action="/action_page.php">
     
                                     <select class="form-control" id="sel5" name="sellist5">
