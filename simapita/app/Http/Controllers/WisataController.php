@@ -8,6 +8,25 @@ use App\Pendapatan;
 
 class WisataController extends Controller
 {
+	public function dashboard(){
+		
+		$pendapatan = DB::table('pendapatan')->get();
+		$avg_pendapatan = DB::table('pendapatan')->avg('hasil_pendapatan');
+		$avg_pengunjung = DB::table('pendapatan')->avg('hasil_pengunjung');
+		$count_wisata =  DB::table('wisata')->count('id_wisata');
+		
+        $bulan = [];
+        $hasil_pendapatan = [];
+        $hasil_pengunjung = [];
+        foreach($pendapatan as $p){
+            $bulan[] =  date('F', strtotime($p->bulan));
+            $hasil_pendapatan[] = $p->hasil_pendapatan;
+            $hasil_pengunjung[] = $p->hasil_pengunjung;
+        }
+		return view('dashboard',['pendapatan' => $pendapatan, 'bulan' => $bulan,  'hasil_pendapatan' => $hasil_pendapatan, 'hasil_pengunjung' => $hasil_pengunjung,
+		'avg_pendapatan' => $avg_pendapatan, 'avg_pengunjung' => $avg_pengunjung, 'count_wisata' => $count_wisata ]);        
+	}
+
     public function cari(Request $request)
 	{
 		$cari = $request->cari;
@@ -77,18 +96,25 @@ class WisataController extends Controller
     
     public function wisata($nama)
     {
-        $wisata = DB::table('wisata')->where('nama_wisata',$nama)->get();
-        
-        $pendapatan = pendapatan::all();
+		$wisata = DB::table('wisata')->where('nama_wisata',$nama)->get();
+
+		
+		
+        foreach($wisata as $w){
+			$pendapatan = DB::table('pendapatan')->where('id_wisata','=',$w->id_wisata)->get();
+			$avg_pendapatan = DB::table('pendapatan')->where('id_wisata','=',$w->id_wisata)->avg('hasil_pendapatan');
+			$avg_pengunjung = DB::table('pendapatan')->where('id_wisata','=',$w->id_wisata)->avg('hasil_pengunjung');
+		}
+		
         $bulan = [];
         $hasil_pendapatan = [];
         $hasil_pengunjung = [];
         foreach($pendapatan as $p){
-            // $bulan[] =  date("F", mktime(0, 0, 0, $p->bulan, 1));
-            $bulan[] = $p->bulan;
+            $bulan[] =  date('F', strtotime($p->bulan));
             $hasil_pendapatan[] = $p->hasil_pendapatan;
             $hasil_pengunjung[] = $p->hasil_pengunjung;
         }
-        return view('wisata.wisata',['wisata' => $wisata, 'bulan' => $bulan, 'hasil_pendapatan' => $hasil_pendapatan, 'hasil_pengunjung' => $hasil_pengunjung]);        
+		return view('wisata.wisata',['wisata' => $wisata, 'pendapatan' => $pendapatan, 'bulan' => $bulan,  'hasil_pendapatan' => $hasil_pendapatan, 'hasil_pengunjung' => $hasil_pengunjung,
+		'avg_pendapatan' => $avg_pendapatan, 'avg_pengunjung' => $avg_pengunjung]);        
 	}
 }

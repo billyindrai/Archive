@@ -1,6 +1,6 @@
 @extends ('layouts.master')
 
-@section('title', 'Wisata')
+@section('title', 'Dashboard')
 
 @section('header')
 
@@ -8,26 +8,26 @@
 
 @section('content')
 
-  @foreach($wisata as $w)
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-      {{$w->nama_wisata}}
-      </h1>
-      <div class="meta">
-            <div>{{$w->rating_wisata}}<span class="fa fa-star"></span></div>
-      </div>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i>Beranda</a></li>
-      </ol>
-    </section>
 
+  <div class="content-wrapper">
     <!-- Main content -->
     <section class="content">
     <br>
     <div class="row">
-        <div class="col-lg-4 col-xs-6">
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-red">
+            <div class="inner">
+              <h3>{{($count_wisata)}}</h3>
+              <p>Wisata</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-ticket"></i>
+            </div>
+            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
@@ -41,7 +41,7 @@
           </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-4 col-xs-6">
+        <div class="col-lg-3 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
@@ -55,7 +55,7 @@
           </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-4 col-xs-6">
+        <div class="col-lg-3 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-yellow">
             <div class="inner">
@@ -114,7 +114,7 @@
               </div>
             </div>
             <div class="box-body">
-              <div id="chartPie"></div>
+              <!-- <div id="chartPie"></div> -->
             </div>
             <!-- /.box-body -->
           </div>
@@ -125,7 +125,6 @@
     </section>
     <!-- /.content -->
   </div>
-  @endforeach
 @endsection
 
 @section('footer')

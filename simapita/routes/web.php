@@ -40,3 +40,4 @@ Route::post('/daftar_wisata/update','WisataController@update');
 Route::get('/daftar_wisata/hapus/{id}','WisataController@hapus');
 
 Route::get('daftar_wisata/{nama}','WisataController@wisata');
+Route::get('/', 'WisataController@dashboard');

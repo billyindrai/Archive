@@ -1,6 +1,6 @@
 @extends ('layouts.master')
 
-@section('title', 'promosi')
+@section('title', 'Promosi')
 
 @section('header')
 
@@ -40,11 +40,11 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($promosi as $p)
+                            @foreach($wisata as $w)
                             <tr>
-                                <td>{{ $p->nama }}</td>
-                                <td>{{ $p->rating }}</td>
-                                <td>{{ $p->jumlah_pengunjung }}</td>
+                                <td>{{ $w->nama_wisata }}</td>
+                                <td>{{ $w->rating_wisata }}</td>
+                                <td>{{ $w->jumlah_pengunjung }}</td>
                                 <td><form action="/action_page.php">
     
                                     <select class="form-control" id="sel5" name="sellist5">

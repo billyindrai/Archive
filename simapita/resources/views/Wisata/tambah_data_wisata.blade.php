@@ -46,13 +46,12 @@
 								<td><input type="varchar", name="nama_wisata" placeholder="Masukan Nama" maxlength="30"></td>
 								<td><input type="integer" name="harga_wisata" placeholder="Masukan Harga Tiket " maxlength="6"></td>
 								<td><input type="doubel" name="rating_wisata" placeholder="Masukan Rating" maxlength="3"></td>
-								<td><input type="integer" name="jumlah_pengunjung "placeholder="Masukan Jumlah pengunjung" maxlength="5"></td>
+								<td><input type="integer" name="jumlah_pengunjung" placeholder="Masukan Jumlah Pengunjung" maxlength="7"></td>
 								<td><input type="file" name="gambar_wisata" ></td>
 							</tr>
 						</tbody>
 					</table>
-					<button class=" button button2"   type="submit" name="submit" > Tambah 
-					</button>
+					<button class= "button button2" type="submit" name="submit" > Tambah </button>
 		</div>
 	</form>
 

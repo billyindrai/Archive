@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 
 use App\Promosi;
+use App\Wisata;
+use Illuminate\Support\Facades\DB;
 use App\Exports\PromosiExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
@@ -18,8 +20,9 @@ class PromosiController extends Controller
      */
     public function index()
     {
-        $promosi = Promosi::all();
-    	return view('promosi', ['promosi' => $promosi]);
+		$wisata = DB::table('wisata')->get();
+        // $promosi = Promosi::all();
+    	return view('promosi', ['wisata' => $wisata]);
     }
     
 	public function export_excel()
