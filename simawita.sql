@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 05, 2020 at 08:33 AM
+-- Generation Time: Jul 06, 2020 at 09:44 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.10
 
@@ -44,7 +44,11 @@ INSERT INTO `pendapatan` (`id_pendapatan`, `id_wisata`, `bulan`, `hasil_pendapat
 (1, 2, '2020-01-01', 5000000, 100000),
 (2, 2, '2020-02-01', 4500000, 250000),
 (3, 2, '2020-03-01', 220000, 120000),
-(4, 2, '2020-04-01', 6100000, 321000);
+(4, 2, '2020-04-01', 6100000, 321000),
+(5, 3, '2020-01-01', 15000000, 540),
+(6, 3, '2020-02-01', 5500000, 431),
+(7, 3, '2020-03-01', 3000000, 890),
+(8, 3, '2020-04-01', 4200000, 562);
 
 -- --------------------------------------------------------
 
@@ -54,19 +58,9 @@ INSERT INTO `pendapatan` (`id_pendapatan`, `id_wisata`, `bulan`, `hasil_pendapat
 
 CREATE TABLE `promosi` (
   `id` int(5) NOT NULL,
-  `nama` varchar(255) NOT NULL,
-  `rating` varchar(256) NOT NULL,
-  `jumlah_pengunjung` varchar(256) NOT NULL,
+  `id_wisata` int(11) NOT NULL,
   `status` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `promosi`
---
-
-INSERT INTO `promosi` (`id`, `nama`, `rating`, `jumlah_pengunjung`, `status`) VALUES
-(1, 'bungker', '4,5', '100', 'sedang diproses'),
-(2, 'Candi Prambanan', '4', '500', 'sedang diproses');
 
 -- --------------------------------------------------------
 
@@ -79,7 +73,6 @@ CREATE TABLE `wisata` (
   `nama_wisata` varchar(255) NOT NULL,
   `harga_wisata` int(10) NOT NULL,
   `rating_wisata` double DEFAULT NULL,
-  `jumlah_pengunjung` int(5) NOT NULL,
   `gambar_wisata` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -87,8 +80,9 @@ CREATE TABLE `wisata` (
 -- Dumping data for table `wisata`
 --
 
-INSERT INTO `wisata` (`id_wisata`, `nama_wisata`, `harga_wisata`, `rating_wisata`, `jumlah_pengunjung`, `gambar_wisata`) VALUES
-(2, 'Candi Borobudur', 6000, 4.3, 5000, '/images/Stupa_Borobudur.jpg');
+INSERT INTO `wisata` (`id_wisata`, `nama_wisata`, `harga_wisata`, `rating_wisata`, `gambar_wisata`) VALUES
+(2, 'Candi Borobudur', 6000, 4.3, '/images/Stupa_Borobudur.jpg'),
+(3, 'Candi Prambanan', 4000, 3.9, '/images/CandiPrambanan.jpg');
 
 --
 -- Indexes for dumped tables
@@ -105,7 +99,8 @@ ALTER TABLE `pendapatan`
 -- Indexes for table `promosi`
 --
 ALTER TABLE `promosi`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_wisata` (`id_wisata`);
 
 --
 -- Indexes for table `wisata`
@@ -121,7 +116,7 @@ ALTER TABLE `wisata`
 -- AUTO_INCREMENT for table `pendapatan`
 --
 ALTER TABLE `pendapatan`
-  MODIFY `id_pendapatan` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_pendapatan` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `promosi`
@@ -133,7 +128,7 @@ ALTER TABLE `promosi`
 -- AUTO_INCREMENT for table `wisata`
 --
 ALTER TABLE `wisata`
-  MODIFY `id_wisata` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_wisata` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
@@ -144,6 +139,12 @@ ALTER TABLE `wisata`
 --
 ALTER TABLE `pendapatan`
   ADD CONSTRAINT `pendapatan_ibfk_1` FOREIGN KEY (`id_wisata`) REFERENCES `wisata` (`id_wisata`);
+
+--
+-- Constraints for table `promosi`
+--
+ALTER TABLE `promosi`
+  ADD CONSTRAINT `promosi_ibfk_1` FOREIGN KEY (`id_wisata`) REFERENCES `wisata` (`id_wisata`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
