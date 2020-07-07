@@ -62,6 +62,8 @@
             @endforeach
             </tbody>
 	        </table>
+          <br>
+          <a href="/wisata/export_excel"  class="btn btn-primary pull-right" style="width:15%"><i class="fa fa-download"></i> Download File</a>
     </section>
     <!-- /.content -->
   </div>

@@ -18,6 +18,9 @@ class PromosiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+   
+
     public function index()
     {
 		$wisata = DB::table('wisata')->get();
