@@ -2,12 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\WisataExcel;
+use App\Wisata;
+use App\Pendapatan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Pendapatan;
-
+use Maatwebsite\Excel\Facades\Excel;
 class WisataController extends Controller
 {
+	public function export_excel()
+	{
+		return Excel::download(new WisataExcel, 'Daftar_wisata.xlsx');
+	}
+
 	public function dashboard(){
 		$avg_pendapatan = DB::table('pendapatan')->avg('hasil_pendapatan');
 		$avg_pengunjung = DB::table('pendapatan')->avg('hasil_pengunjung');
@@ -96,7 +103,8 @@ class WisataController extends Controller
 		$cari = $request->cari;
 		$wisata = DB::table('wisata')->where('nama_wisata','like',"%".$cari."%")->paginate();
     	return view('wisata.daftar_wisata',['wisata' => $wisata]);
-    }
+	}
+	
     
     public function wisata($nama)
     {
