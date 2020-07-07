@@ -36,8 +36,7 @@
               					
               					<th>Nama Wisata</th>
              					<th>Harga Tiket</th>
-              					<th>Rating Wisata</th>      
-              					<th>Jumlah Pengunjung</th>
+              					<th>Rating Wisata</th>     
 								<th>Upload</th>
             				</tr>
             			</thead>
@@ -48,9 +47,6 @@
 								
 				<td><input type="varchar", name="nama_wisata" required="required" value="{{ $w->nama_wisata }}" size="30" maxlength="30"></td>
 				<td><input type="integer" name="harga_wisata" required="required" value="{{ $w->harga_wisata }}" size="6" maxlength="6"></td>
-				
-				<td><input type="doubel" name="rating_wisata" required="required" value="{{ $w->rating_wisata }}" size="3" maxlength="3"></td>
-								
 				<td><input type="doubel" name="rating_wisata" required="required" value="{{ $w->rating_wisata }}" size="3" maxlength="3"></td>
 								<td><input type="file" name="gambar_wisata" ></td>
 							</tr>

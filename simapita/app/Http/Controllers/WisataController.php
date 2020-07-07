@@ -13,23 +13,22 @@ class WisataController extends Controller
 		$avg_pengunjung = DB::table('pendapatan')->avg('hasil_pengunjung');
 		$count_wisata =  DB::table('wisata')->count('id_wisata');
 
-		$wisata = DB::table('wisata')->where('nama_wisata')->get();
-		foreach($wisata as $w){
-			$pendapatan = DB::table('pendapatan')->where('id_wisata','=',$w->id_wisata)->get();
-		}
-		// $pendapatan = DB::table('pendapatan')->where('id_wisata')->get();
-        $bulan = [];
-        $hasil_pendapatan = [];
-        $hasil_pengunjung = [];
+		$pendapatan = DB::table('pendapatan')->get();
+        // $bulan = [];
+        // $hasil_pendapatan = [];
+        // $hasil_pengunjung = [];
         foreach($pendapatan as $p){
 			$bulan[] =  date('F', strtotime($p->bulan));
 			$hasil_pendapatan[] = DB::table('pendapatan')->where('bulan','=',$p->bulan)->avg('hasil_pendapatan');
 			$hasil_pengunjung[] = DB::table('pendapatan')->where('bulan','=',$p->bulan)->avg('hasil_pengunjung');
             // $hasil_pendapatan[] = $p->hasil_pendapatan;
             // $hasil_pengunjung[] = $p->hasil_pengunjung;
-        }
-		return view('dashboard',['pendapatan' => $pendapatan, 'bulan' => $bulan,  'hasil_pendapatan' => $hasil_pendapatan, 'hasil_pengunjung' => $hasil_pengunjung,
-		'avg_pendapatan' => $avg_pendapatan, 'avg_pengunjung' => $avg_pengunjung, 'count_wisata' => $count_wisata ]);        
+		}
+
+		// return view('dashboard',['pendapatan' => $pendapatan, 'bulan' => $bulan, 'hasil_pendapatan' => $hasil_pendapatan, 
+		// 'hasil_pengunjung' => $hasil_pengunjung, 'avg_pendapatan' => $avg_pendapatan, 
+		// 'avg_pengunjung' => $avg_pengunjung, 'count_wisata' => $count_wisata ]);
+		dd($hasil_pendapatan);
 	}
 
     public function cari(Request $request)

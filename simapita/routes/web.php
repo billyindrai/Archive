@@ -18,30 +18,15 @@ Route::get('/', function () {
 });
 
 
-Route::get('/dashboard', 'AdminController@dashboard');
-
-// promosi
 Route::get('/promosi', 'PromosiController@index');
 Route::get('/promosi/export_excel', 'PromosiController@export_excel');
-
-// Route::get('/wisata', function () {
-//     return view('daftar_wisata');
-// });
-
-// Route::get('/dashboard', 'AdminController@dashboard');
-
-Route::get('/wisata', 'AdminController@wisata');
 
 Route::get('/daftar_wisata', 'WisataController@tampilan_data');
 Route::get('/daftar_wisata/tambah', 'WisataController@tambah');
 Route::post('/daftar_wisata/store','WisataController@store');
 Route::get('/daftar_wisata/edit/{id}','WisataController@edit');
 Route::post('/daftar_wisata/update','WisataController@update');
-<<<<<<< Updated upstream
 Route::get('/daftar_wisata/hapus/{id}','WisataController@hapus');
-
 Route::get('daftar_wisata/{nama}','WisataController@wisata');
+
 Route::get('/', 'WisataController@dashboard');
-=======
-Route::get('/daftar_wisata/hapus/{id}','WisataController@hapus');
->>>>>>> Stashed changes
