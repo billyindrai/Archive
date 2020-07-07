@@ -14,21 +14,62 @@ class WisataController extends Controller
 		$count_wisata =  DB::table('wisata')->count('id_wisata');
 
 		$pendapatan = DB::table('pendapatan')->get();
-        // $bulan = [];
-        // $hasil_pendapatan = [];
-        // $hasil_pengunjung = [];
-        foreach($pendapatan as $p){
-			$bulan[] =  date('F', strtotime($p->bulan));
-			$hasil_pendapatan[] = DB::table('pendapatan')->where('bulan','=',$p->bulan)->avg('hasil_pendapatan');
-			$hasil_pengunjung[] = DB::table('pendapatan')->where('bulan','=',$p->bulan)->avg('hasil_pengunjung');
-            // $hasil_pendapatan[] = $p->hasil_pendapatan;
-            // $hasil_pengunjung[] = $p->hasil_pengunjung;
-		}
+        
+		$nama_bulan[1]='Januari';
+		$nama_bulan[2]='Februari';
+		$nama_bulan[3]='Maret';
+		$nama_bulan[4]='April';
+		$hasil_pendapatan = [];
+		$jumlah = [];
+		$hasil_pendapatan['Januari'] = 0;
+		$hasil_pendapatan['Februari'] = 0;
+		$hasil_pendapatan['Maret'] = 0;
+		$hasil_pendapatan['April'] = 0;
+		$hasil_pengunjung['Januari'] = 0;
+		$hasil_pengunjung['Februari'] = 0;
+		$hasil_pengunjung['Maret'] = 0;
+		$hasil_pengunjung['April'] = 0;
+		$jumlah['Januari'] = DB::table('pendapatan')->where('bulan', '=',"2020-01-01")->count();
+		$jumlah['Februari'] = DB::table('pendapatan')->where('bulan', '=','2020-02-01')->count();
+		$jumlah['Maret'] = DB::table('pendapatan')->where('bulan', '=','2020-03-01')->count();
+		$jumlah['April'] = DB::table('pendapatan')->where('bulan', '=','2020-04-01')->count();
+		
 
-		// return view('dashboard',['pendapatan' => $pendapatan, 'bulan' => $bulan, 'hasil_pendapatan' => $hasil_pendapatan, 
-		// 'hasil_pengunjung' => $hasil_pengunjung, 'avg_pendapatan' => $avg_pendapatan, 
-		// 'avg_pengunjung' => $avg_pengunjung, 'count_wisata' => $count_wisata ]);
-		dd($hasil_pendapatan);
+        	foreach($pendapatan as $p){
+				if($p->bulan >= '2020-01-01' && $p->bulan <= '2020-01-31') {
+					$hasil_pendapatan['Januari'] += $p->hasil_pendapatan;
+					$hasil_pengunjung['Januari'] += $p->hasil_pengunjung;
+
+				}
+				if($p->bulan >= '2020-02-01' && $p->bulan <= '2020-02-31') {
+					$hasil_pendapatan['Februari'] += $p->hasil_pendapatan;
+					$hasil_pengunjung['Februari'] += $p->hasil_pengunjung;
+				}
+				if($p->bulan >= '2020-03-01' && $p->bulan <= '2020-03-31') {
+					$hasil_pendapatan['Maret'] += $p->hasil_pendapatan;
+					$hasil_pengunjung['Maret'] += $p->hasil_pengunjung;
+				}
+				if($p->bulan >= '2020-04-01' && $p->bulan <= '2020-04-31') {
+					$hasil_pendapatan['April'] += $p->hasil_pendapatan;
+					$hasil_pengunjung['April'] += $p->hasil_pengunjung;
+				}
+			}
+
+		$rata_pendapatan['Januari'] = $hasil_pendapatan['Januari'] / $jumlah['Januari'];
+		$rata_pendapatan['Februari'] = $hasil_pendapatan['Februari'] / $jumlah['Februari'];
+		$rata_pendapatan['Maret'] = $hasil_pendapatan['Maret'] / $jumlah['Maret'];
+		$rata_pendapatan['April'] = $hasil_pendapatan['April'] / $jumlah['April'];
+		$rata_pengunjung['Januari'] = $hasil_pengunjung['Januari'] / $jumlah['Januari'];
+		$rata_pengunjung['Februari'] = $hasil_pengunjung['Februari'] / $jumlah['Februari'];
+		$rata_pengunjung['Maret'] = $hasil_pengunjung['Maret'] / $jumlah['Maret'];
+		$rata_pengunjung['April'] = $hasil_pengunjung['April'] / $jumlah['April'];
+
+		return view('dashboard',['pendapatan' => $pendapatan, 'hasil_pendapatan' => $hasil_pendapatan, 
+		'hasil_pengunjung' => $hasil_pengunjung, 'avg_pendapatan' => $avg_pendapatan, 
+		'avg_pengunjung' => $avg_pengunjung, 'count_wisata' => $count_wisata, 'rata_pendapatan' => $rata_pendapatan, 'rata_pengunjung' => $rata_pengunjung,
+		'nama_bulan' => $nama_bulan]);
+
+		// dd($nama_bulan);
 	}
 
     public function cari(Request $request)
@@ -110,9 +151,9 @@ class WisataController extends Controller
 			$avg_pengunjung = DB::table('pendapatan')->where('id_wisata','=',$w->id_wisata)->avg('hasil_pengunjung');
 		}
 		
-        $bulan = [];
-        $hasil_pendapatan = [];
-        $hasil_pengunjung = [];
+        // $bulan = [];
+        // $hasil_pendapatan = [];
+        // $hasil_pengunjung = [];
         foreach($pendapatan as $p){
             $bulan[] =  date('F', strtotime($p->bulan));
             $hasil_pendapatan[] = $p->hasil_pendapatan;

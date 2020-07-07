@@ -125,6 +125,7 @@
     </section>
     <!-- /.content -->
   </div>
+  
 @endsection
 
 @section('footer')
@@ -144,7 +145,7 @@
     //     text: 'Source: WorldClimate.com'
     // },
     xAxis: {
-        categories: {!!json_encode($bulan)!!},
+        categories: {!!json_encode($nama_bulan)!!},
         crosshair: true
     },
     yAxis: {
@@ -169,7 +170,7 @@
     },
     series: [{
         name: 'Pengunjung',
-        data: {!!json_encode($hasil_pengunjung)!!}
+        data: {!!json_encode($rata_pengunjung)!!}
     }]
 });
 </script>
@@ -192,7 +193,7 @@ yAxis: {
 },
 
 xAxis: {
-        categories: {!!json_encode($bulan)!!},
+        categories: {!!json_encode($nama_bulan)!!},
         crosshair: true
     },
 
@@ -213,7 +214,7 @@ legend: {
 
 series: [{
     name: 'Rupiah',
-    data: {!!json_encode($hasil_pendapatan)!!}
+    data: {!!json_encode($rata_pendapatan)!!}
 }],
 
 responsive: {
