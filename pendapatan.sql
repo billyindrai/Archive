@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 30, 2020 at 04:52 AM
+-- Generation Time: Jul 07, 2020 at 07:50 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.10
 
@@ -33,18 +33,23 @@ CREATE TABLE `pendapatan` (
   `id_wisata` int(5) DEFAULT NULL,
   `bulan` date DEFAULT NULL,
   `hasil_pendapatan` int(10) DEFAULT NULL,
-  `hasil_pengunjung` int(10) NOT NULL
+  `hasil_pengunjung` int(10) NOT NULL,
+  `tiket` varchar(2000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `pendapatan`
 --
 
-INSERT INTO `pendapatan` (`id_pendapatan`, `id_wisata`, `bulan`, `hasil_pendapatan`, `hasil_pengunjung`) VALUES
-(1, 2, '2020-01-01', 5000000, 100000),
-(2, 2, '2020-02-01', 4500000, 250000),
-(3, 2, '2020-03-01', 220000, 120000),
-(4, 2, '2020-04-01', 6100000, 321000);
+INSERT INTO `pendapatan` (`id_pendapatan`, `id_wisata`, `bulan`, `hasil_pendapatan`, `hasil_pengunjung`, `tiket`) VALUES
+(1, 2, '2020-01-01', 5000000, 100000, '100'),
+(2, 2, '2020-02-01', 4500000, 250000, '250'),
+(3, 2, '2020-03-01', 220000, 120000, '1200'),
+(4, 2, '2020-04-01', 6100000, 321000, '321'),
+(5, 3, '2020-01-01', 15000000, 540, '540'),
+(6, 3, '2020-02-01', 5500000, 431, '555'),
+(7, 3, '2020-03-01', 3000000, 890, '890'),
+(8, 3, '2020-04-01', 4200000, 562, '420');
 
 --
 -- Indexes for dumped tables
@@ -65,7 +70,7 @@ ALTER TABLE `pendapatan`
 -- AUTO_INCREMENT for table `pendapatan`
 --
 ALTER TABLE `pendapatan`
-  MODIFY `id_pendapatan` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_pendapatan` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables

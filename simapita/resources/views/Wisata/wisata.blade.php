@@ -33,7 +33,7 @@
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3>150</h3>
+              <h3>{{round($avg_tiket)}}</h3>
               <p>Tiket Terjual</p>
             </div>
             <div class="icon">
@@ -99,7 +99,7 @@
               </div>
             </div>
             <div class="box-body">
-              <div id="chartBar"></div>
+              <div id="container"></div>
             </div>
             <!-- /.box-body -->
           </div>
@@ -109,21 +109,23 @@
         <div class="col-lg-6 col-xs-6">
           <div class="box box-success">
             <div class="box-header with-border">
-              <h3 class="box-title">Pie Chart</h3>
+              <h3 class="box-title">Bar Chart</h3>
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                 <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
               </div>
             </div>
             <div class="box-body">
-              <div id="chartPie"></div>
+              <div id="chartBar"></div>
             </div>
             <!-- /.box-body -->
           </div>
           <!-- /.box -->
         </div>
-
+       
     </div>
+    <a href="/daftar_wisata/export_excel/{{$w->nama_wisata}}"  class="btn btn-primary pull-right" style="width:15%"><i class="fa fa-download"></i> Download File</a>
+    <br>
     </section>
     <!-- /.content -->
   </div>
@@ -238,68 +240,60 @@ responsive: {
 </script>
 
 <script>
-Highcharts.chart('chartPie', {
+  Highcharts.chart('container', {
     chart: {
-        plotBackgroundColor: null,
-        plotBorderWidth: null,
-        plotShadow: false,
-        type: 'pie'
+        type: 'bar'
     },
     title: {
-        text: 'Tiket Pengunjung'
+        text: 'Grafik Penjualan Tiket'
     },
-    tooltip: {
-        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-    },
-    accessibility: {
-        point: {
-            valueSuffix: '%'
+    // subtitle: {
+    //     text: 'Source: <a href="https://en.wikipedia.org/wiki/World_population">Wikipedia.org</a>'
+    // },
+    xAxis: {
+        categories: {!!json_encode($bulan)!!},
+        title: {
+            text: null
         }
     },
+    yAxis: {
+        min: 0,
+        // title: {
+        //     text: 'Population (millions)',
+        //     align: 'high'
+        // },
+        labels: {
+            overflow: 'justify'
+        }
+    },
+    // tooltip: {
+    //     valueSuffix: ' millions'
+    // },
     plotOptions: {
-        pie: {
-            allowPointSelect: true,
-            cursor: 'pointer',
+        bar: {
             dataLabels: {
-                enabled: true,
-                format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                enabled: true
             }
         }
     },
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'top',
+        x: -40,
+        y: 80,
+        floating: true,
+        borderWidth: 1,
+        backgroundColor:
+            Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF',
+        shadow: true
+    },
+    credits: {
+        enabled: false
+    },
     series: [{
-        name: 'Brands',
-        colorByPoint: true,
-        data: [{
-            name: 'Chrome',
-            y: 61.41,
-            sliced: true,
-            selected: true
-        }, {
-            name: 'Internet Explorer',
-            y: 11.84
-        }, {
-            name: 'Firefox',
-            y: 10.85
-        }, {
-            name: 'Edge',
-            y: 4.67
-        }, {
-            name: 'Safari',
-            y: 4.18
-        }, {
-            name: 'Sogou Explorer',
-            y: 1.64
-        }, {
-            name: 'Opera',
-            y: 1.6
-        }, {
-            name: 'QQ',
-            y: 1.2
-        }, {
-            name: 'Other',
-            y: 2.61
-        }]
-    }]
+        name: 'Tiket',
+        data: {!!json_encode($tiket)!!}}]
 });
 </script>
 @stop
