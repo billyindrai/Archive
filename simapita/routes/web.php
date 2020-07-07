@@ -21,7 +21,7 @@ Route::get('/', function () {
 Route::get('/promosi', 'PromosiController@index');
 Route::get('/promosi/export_excel', 'PromosiController@export_excel');
 Route::get('/daftar_wisata', 'WisataController@index');
-Route::get('/daftar_wisata/export_excel/{nama}', 'WisataController@export_excel');
+Route::get('/daftar_wisata/export_excel', 'WisataController@export_excel');
 
 Route::get('/daftar_wisata', 'WisataController@tampilan_data');
 Route::get('/daftar_wisata/tambah', 'WisataController@tambah');

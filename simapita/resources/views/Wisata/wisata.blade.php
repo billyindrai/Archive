@@ -124,7 +124,7 @@
         </div>
        
     </div>
-    <a href="/daftar_wisata/export_excel/{{$w->nama_wisata}}"  class="btn btn-primary pull-right" style="width:15%"><i class="fa fa-download"></i> Download File</a>
+    <a href="/daftar_wisata/export_excel"  class="btn btn-primary pull-right" style="width:15%"><i class="fa fa-download"></i> Download File</a>
     <br>
     </section>
     <!-- /.content -->

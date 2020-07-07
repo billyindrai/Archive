@@ -12,9 +12,8 @@ class WisataExcel implements FromCollection
     /**
     * @return \Illuminate\Support\Collection
     */
-    public function collection($nama)
+    public function collection()
     {
-        return DB::table('wisata')->where('nama_wisata',$nama)->get();
-
+        return Pendapatan::all();
     }
 }
